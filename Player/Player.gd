@@ -5,6 +5,8 @@ export (float) var max_speed
 export (float) var gravity
 export (float) var jump_power
 
+onready var arrow = load("Arrow/Arrow.tscn")
+
 var movement = Vector2()
 var friction = false
 
@@ -28,3 +30,11 @@ func _physics_process(delta):
 		movement.x = lerp(movement.x, 0, 0.1)
 	
 	movement = move_and_slide(movement, Vector2.UP)
+
+func _input(event):
+	if event.is_action_pressed("shoot"):
+		var arrow_instance = arrow.instance()
+		arrow_instance.position = get_global_position()
+		arrow_instance.movement = (get_global_mouse_position() - arrow_instance.position).normalized()
+		get_parent().add_child(arrow_instance)
+	
