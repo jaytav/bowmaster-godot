@@ -6,6 +6,9 @@
 extents = Vector2( 64, 8 )
 
 [node name="Block" type="KinematicBody2D"]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
