@@ -11,6 +11,8 @@ var movement = Vector2()
 var friction = false
 var direction = 1
 
+onready var health_ui = $EnemyUI/Health
+
 func _physics_process(delta):
 	movement.y += gravity
 	friction = false
@@ -29,12 +31,16 @@ func _turn():
 	direction *= -1
 	$RayCast2D.cast_to.x *= -1
 
-func take_damage(damage):
-	health = max(health - damage, 0)
-	
-	if health == 0:
-		queue_free()
-
 func _on_Hitbox_body_entered(body):
 	if body is KinematicBody2D && body.name.begins_with("Player"):
 		body.take_damage(damage)
+
+func _update_health_ui():
+	health_ui.text = str(health) + " HP"
+
+func take_damage(damage):
+	health = max(health - damage, 0)
+	_update_health_ui()
+	
+	if health == 0:
+		queue_free()

@@ -28,6 +28,26 @@ cast_to = Vector2( 10, 10 )
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource( 2 )
+
+[node name="EnemyUI" type="Control" parent="."]
+margin_left = -24.0
+margin_top = -24.0
+margin_right = 24.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Label" parent="EnemyUI"]
+modulate = Color( 1, 0.317647, 0.317647, 1 )
+margin_right = 48.0
+margin_bottom = 14.0
+text = "X HP"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="ready" from="." to="." method="_update_health_ui"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
 
 [editable path="Hitbox"]
