@@ -17,7 +17,7 @@ func _physics_process(delta):
 	movement.y += gravity
 	friction = false
 	
-	if $RayCast2D.is_colliding() == false && is_on_floor():
+	if $RayCast2D.is_colliding() == false && is_on_floor() || is_on_wall():
 		_turn()
 	
 	if direction == 1:

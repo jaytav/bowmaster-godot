@@ -22,6 +22,13 @@ position = Vector2( 160, 16 )
 [node name="Sprite" parent="Block2" index="0"]
 scale = Vector2( 8, 1 )
 
+[node name="Block3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 232, -40 )
+rotation = 1.5708
+
+[node name="Sprite" parent="Block3" index="0"]
+scale = Vector2( 8, 1 )
+
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 160, -8 )
 acceleration = 5.0
@@ -33,3 +40,5 @@ damage = 1
 [editable path="Block"]
 
 [editable path="Block2"]
+
+[editable path="Block3"]
