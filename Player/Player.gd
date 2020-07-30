@@ -8,6 +8,7 @@ export (float) var jump_power
 export (int) var health
 
 onready var arrow = load("Arrow/Arrow.tscn")
+onready var health_ui = $PlayerUI/Health
 
 var movement = Vector2()
 var friction = false
@@ -39,10 +40,13 @@ func _input(event):
 		arrow_instance.position = get_global_position()
 		arrow_instance.movement = (get_global_mouse_position() - arrow_instance.position).normalized()
 		get_parent().add_child(arrow_instance)
-	
+
+func _update_health_ui():
+	health_ui.text = str(health) + " HP"
 
 func take_damage(damage):
 	health = max(health - damage, 0)
+	_update_health_ui()
 	
 	if health == 0:
 		queue_free()
