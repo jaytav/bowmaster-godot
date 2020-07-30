@@ -3,6 +3,7 @@ extends KinematicBody2D
 export (float) var acceleration
 export (float) var max_speed
 export (float) var gravity
+export (int) var health
 
 var movement = Vector2()
 var friction = false
@@ -25,3 +26,9 @@ func _physics_process(delta):
 func _turn():
 	direction *= -1
 	$RayCast2D.cast_to.x *= -1
+
+func take_damage(damage):
+	health = max(health - damage, 0)
+	
+	if health == 0:
+		queue_free()
