@@ -3,7 +3,9 @@ extends KinematicBody2D
 export (float) var acceleration
 export (float) var max_speed
 export (float) var gravity
+
 export (int) var health
+export (int) var damage
 
 var movement = Vector2()
 var friction = false
@@ -32,3 +34,7 @@ func take_damage(damage):
 	
 	if health == 0:
 		queue_free()
+
+func _on_Hitbox_body_entered(body):
+	if body is KinematicBody2D && body.name.begins_with("Player"):
+		body.take_damage(damage)

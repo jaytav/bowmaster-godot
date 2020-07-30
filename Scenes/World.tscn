@@ -8,6 +8,7 @@
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, -16 )
+health = 3
 
 [node name="Block" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, 16 )
@@ -27,6 +28,7 @@ acceleration = 5.0
 max_speed = 50.0
 gravity = 8.0
 health = 3
+damage = 1
 
 [editable path="Block"]
 

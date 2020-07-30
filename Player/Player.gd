@@ -5,6 +5,8 @@ export (float) var max_speed
 export (float) var gravity
 export (float) var jump_power
 
+export (int) var health
+
 onready var arrow = load("Arrow/Arrow.tscn")
 
 var movement = Vector2()
@@ -38,3 +40,9 @@ func _input(event):
 		arrow_instance.movement = (get_global_mouse_position() - arrow_instance.position).normalized()
 		get_parent().add_child(arrow_instance)
 	
+
+func take_damage(damage):
+	health = max(health - damage, 0)
+	
+	if health == 0:
+		queue_free()
