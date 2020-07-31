@@ -9,6 +9,7 @@ export (int) var health
 
 onready var arrow = load("Arrow/Arrow.tscn")
 onready var health_ui = $PlayerUI/Health
+onready var camera = get_node("Camera2D")
 
 var movement = Vector2()
 var friction = false
@@ -49,4 +50,4 @@ func take_damage(damage):
 	_update_health_ui()
 	
 	if health == 0:
-		queue_free()
+		get_tree().change_scene("res://Scenes/GameOver.tscn")
