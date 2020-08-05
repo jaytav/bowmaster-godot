@@ -50,4 +50,6 @@ func take_damage(damage):
 	_update_health_ui()
 	
 	if health == 0:
-		get_tree().change_scene("res://Scenes/GameOver.tscn")
+		MainGUI.clear()
+		MainWorld.clear()
+		MainGUI.add(Scenes.GameOverGUI)

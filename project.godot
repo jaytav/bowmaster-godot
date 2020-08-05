@@ -8,15 +8,26 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "MainScene",
+"language": "GDScript",
+"path": "res://Autoload/MainScene.gd"
+} ]
 _global_script_class_icons={
-
+"MainScene": ""
 }
 
 [application]
 
 config/name="Bowmaster"
-run/main_scene="res://Scenes/MainMenu.tscn"
+run/main_scene="res://Main.tscn"
+
+[autoload]
+
+Scenes="*res://Autoload/Scenes.gd"
+MainGUI="*res://Autoload/MainGUIScene.gd"
+MainWorld="*res://Autoload/MainWorldScene.gd"
 
 [display]
 
