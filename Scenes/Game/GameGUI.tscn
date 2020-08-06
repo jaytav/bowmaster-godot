@@ -1,8 +1,12 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Game/GameGUI.gd" type="Script" id=1]
 
 [node name="GameGUI" type="Control"]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -14,6 +18,17 @@ margin_top = 8.0
 margin_right = 38.0
 margin_bottom = 24.0
 text = "X HP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameMenu" type="Label" parent="."]
+visible = false
+margin_right = 1440.0
+margin_bottom = 32.0
+text = "Paused"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
