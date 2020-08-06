@@ -1,18 +1,19 @@
 [gd_scene format=2]
 
-[node name="Game" type="Control"]
+[node name="GameGUI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
-margin_left = 632.0
+[node name="PlayerHealth" type="Label" parent="."]
+modulate = Color( 0.94902, 0.266667, 0.266667, 1 )
+margin_left = 8.0
 margin_top = 8.0
-margin_right = 798.0
-margin_bottom = 22.0
-text = "THIS IS THE GAME SCREEN"
+margin_right = 38.0
+margin_bottom = 24.0
+text = "X HP"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -27,24 +27,4 @@ shape = SubResource( 1 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
 limit_left = -10000717
-
-[node name="PlayerUI" type="Control" parent="."]
-margin_left = -360.0
-margin_top = -200.0
-margin_right = 360.0
-margin_bottom = 200.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Health" type="Label" parent="PlayerUI"]
-modulate = Color( 1, 0.321569, 0.278431, 1 )
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 48.0
-margin_bottom = 24.0
-text = "X HP"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-[connection signal="ready" from="." to="." method="_update_health_ui"]
+[connection signal="ready" from="." to="." method="_on_Player_ready"]

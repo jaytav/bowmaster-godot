@@ -8,10 +8,10 @@ export (float) var jump_power
 export (int) var health
 
 onready var arrow = load("Arrow/Arrow.tscn")
-onready var health_ui = $PlayerUI/Health
 onready var camera = get_node("Camera2D")
 
 var movement = Vector2()
+var health_ui = MainGUI.get("GameGUI/PlayerHealth")
 var friction = false
 
 func _physics_process(delta):
@@ -42,14 +42,15 @@ func _input(event):
 		arrow_instance.movement = (get_global_mouse_position() - arrow_instance.position).normalized()
 		get_parent().add_child(arrow_instance)
 
-func _update_health_ui():
-	health_ui.text = str(health) + " HP"
-
 func take_damage(damage):
 	health = max(health - damage, 0)
-	_update_health_ui()
+	health_ui.text = str(health) + " HP"
 	
 	if health == 0:
 		MainGUI.clear()
 		MainWorld.clear()
 		MainGUI.add(Scenes.GameOverGUI)
+
+func _on_Player_ready():
+	return
+	health_ui.text = str(health) + " HP"
