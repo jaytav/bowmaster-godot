@@ -9,3 +9,6 @@ const GameWorld = preload("res://Scenes/Game/GameWorld.tscn")
 
 # Game Over
 const GameOverGUI = preload("res://Scenes/GameOver/GameOverGUI.tscn")
+
+# Finish
+const FinishGUI = preload("res://Scenes/Finish/FinishGUI.tscn")
