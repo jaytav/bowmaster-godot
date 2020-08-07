@@ -1,56 +1,57 @@
 extends KinematicBody2D
 
-export (float) var acceleration
-export (float) var max_speed
-export (float) var gravity
-export (float) var jump_power
+export (float) var _acceleration
+export (float) var _max_speed
+export (float) var _gravity
+export (float) var _jump_power
+export (int) var _health
 
-export (int) var health
+var _movement = Vector2()
+var _health_ui = MainGUI.get("GameGUI/PlayerHealth")
+var _friction = false
 
-onready var arrow = load("Arrow/Arrow.tscn")
-onready var camera = get_node("Camera2D")
+onready var Arrow = load("Arrow/Arrow.tscn")
 
-var movement = Vector2()
-var health_ui = MainGUI.get("GameGUI/PlayerHealth")
-var friction = false
 
 func _physics_process(delta):
-	movement.y += gravity
-	friction = false
+	_movement.y += _gravity
+	_friction = false
 	
 	if Input.get_action_strength("right"):
-		movement.x = min(movement.x + acceleration, max_speed)
+		_movement.x = min(_movement.x + _acceleration, _max_speed)
 	elif Input.get_action_strength("left"):
-		movement.x = max(movement.x - acceleration, -max_speed)
+		_movement.x = max(_movement.x - _acceleration, -_max_speed)
 	else:
-		friction = true
+		_friction = true
 	
 	if is_on_floor():
 		if Input.is_action_just_pressed("jump"):
-			movement.y = -jump_power
-		if friction == true:
-			movement.x = lerp(movement.x, 0, 0.2)
-	elif friction == true:
-		movement.x = lerp(movement.x, 0, 0.1)
+			_movement.y = -_jump_power
+		if _friction == true:
+			_movement.x = lerp(_movement.x, 0, 0.2)
+	elif _friction == true:
+		_movement.x = lerp(_movement.x, 0, 0.1)
 	
-	movement = move_and_slide(movement, Vector2.UP)
+	_movement = move_and_slide(_movement, Vector2.UP)
+
 
 func _input(event):
 	if event.is_action_pressed("shoot"):
-		var arrow_instance = arrow.instance()
+		var arrow_instance = Arrow.instance()
 		arrow_instance.position = get_global_position()
 		arrow_instance.movement = (get_global_mouse_position() - arrow_instance.position).normalized()
 		get_parent().add_child(arrow_instance)
 
+
 func take_damage(damage):
-	health = max(health - damage, 0)
-	health_ui.text = str(health) + " HP"
+	_health = max(_health - damage, 0)
+	_health_ui.text = str(_health) + " HP"
 	
-	if health == 0:
+	if _health == 0:
 		MainGUI.clear()
 		MainWorld.clear()
 		MainGUI.add(Scenes.GameOverGUI)
 
+
 func _on_Player_ready():
-	return
-	health_ui.text = str(health) + " HP"
+	_health_ui.text = str(_health) + " HP"
