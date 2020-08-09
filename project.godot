@@ -9,12 +9,24 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "RigidBody2D",
+"class": "Interactable",
+"language": "GDScript",
+"path": "res://Interact/Interactable.gd"
+}, {
+"base": "Area2D",
+"class": "Interactor",
+"language": "GDScript",
+"path": "res://Interact/Interactor.gd"
+}, {
 "base": "Node",
 "class": "MainScene",
 "language": "GDScript",
 "path": "res://Autoload/MainScene.gd"
 } ]
 _global_script_class_icons={
+"Interactable": "",
+"Interactor": "",
 "MainScene": ""
 }
 
@@ -62,12 +74,18 @@ pause={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)
  ]
 }
+interact={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [layer_names]
 
 2d_physics/layer_1="General"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Interactable"
 
 [rendering]
 

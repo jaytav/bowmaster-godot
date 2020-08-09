@@ -1,11 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Textures/1x2.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Other/Hitbox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Interact/Interactor.gd" type="Script" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.0
 height = 16.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 16 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
@@ -16,15 +21,27 @@ _gravity = 8.0
 _jump_power = 150.0
 _health = 1
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.14902, 0.454902, 0.784314, 1 )
 texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.5, 0.5 )
 limit_left = -10000717
+
+[node name="Interactor" parent="." instance=ExtResource( 3 )]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="Interactor" index="0"]
+shape = SubResource( 2 )
 [connection signal="ready" from="." to="." method="_on_Player_ready"]
+[connection signal="area_entered" from="Interactor" to="Interactor" method="_on_Interactor_area_entered"]
+[connection signal="area_exited" from="Interactor" to="Interactor" method="_on_Interactor_area_exited"]
+
+[editable path="Interactor"]
