@@ -1,18 +1,13 @@
-extends KinematicBody2D
+extends LivingEntity
 
 export (float) var acceleration
 export (float) var max_speed
 export (float) var gravity
-
-export (int) var health
 export (int) var damage
 
 var movement = Vector2()
 var friction = false
 var direction = 1
-
-onready var health_ui = $EnemyUI/Health
-
 
 func _physics_process(delta):
 	movement.y += gravity
@@ -39,13 +34,5 @@ func _on_Hitbox_body_entered(body):
 		body.take_damage(damage)
 
 
-func _update_health_ui():
-	health_ui.text = str(health) + " HP"
-
-
-func take_damage(damage):
-	health = max(health - damage, 0)
-	_update_health_ui()
-	
-	if health == 0:
-		queue_free()
+func _health_label_ready():
+	_health_label = $HealthLabel

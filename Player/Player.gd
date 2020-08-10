@@ -1,13 +1,11 @@
-extends KinematicBody2D
+extends LivingEntity
 
 export (float) var _acceleration
 export (float) var _max_speed
 export (float) var _gravity
 export (float) var _jump_power
-export (int) var _health
 
 var _movement = Vector2()
-var _health_ui = MainGUI.get("GameGUI/PlayerHealth")
 var _friction = false
 
 onready var Arrow = load("Arrow/Arrow.tscn")
@@ -43,15 +41,12 @@ func _input(event):
 		get_parent().add_child(arrow_instance)
 
 
-func take_damage(damage):
-	_health = max(_health - damage, 0)
-	_health_ui.text = str(_health) + " HP"
-	
-	if _health == 0:
-		MainGUI.clear()
-		MainWorld.clear()
-		MainGUI.add(Scenes.GameOverGUI)
+func _die():
+	MainGUI.clear()
+	MainWorld.clear()
+	MainGUI.add(Scenes.GameOverGUI)
+	._die()
 
 
-func _on_Player_ready():
-	_health_ui.text = str(_health) + " HP"
+func _health_label_ready():
+	_health_label = MainGUI.get("GameGUI/PlayerHealth")
