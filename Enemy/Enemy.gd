@@ -9,13 +9,20 @@ var movement = Vector2()
 var friction = false
 var direction = 1
 
+var stopped = false
+
 func _physics_process(delta):
 	movement.y += gravity
 	friction = false
-	
+
+	if stopped:
+		movement.x = 0
+		movement = move_and_slide(movement, Vector2.UP)
+		return;
+
 	if $RayCast2D.is_colliding() == false && is_on_floor() || is_on_wall():
 		_turn()
-	
+
 	if direction == 1:
 		movement.x = min(movement.x + acceleration, max_speed)
 	else:
@@ -32,6 +39,14 @@ func _turn():
 func _on_Hitbox_body_entered(body):
 	if body is KinematicBody2D && body.name.begins_with("Player"):
 		body.take_damage(damage)
+
+
+func _on_Range_body_entered(body):
+	stopped = true
+
+
+func _on_Range_body_exited(body):
+	stopped = false
 
 
 func _health_label_ready():

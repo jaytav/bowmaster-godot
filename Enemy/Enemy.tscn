@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Textures/1x1.png" type="Texture" id=1]
 [ext_resource path="res://Enemy/Enemy.gd" type="Script" id=2]
@@ -8,6 +8,9 @@
 radius = 8.0
 
 [sub_resource type="CircleShape2D" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 100, 10 )
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 4
@@ -34,6 +37,14 @@ cast_to = Vector2( 10, 10 )
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
 shape = SubResource( 2 )
 
+[node name="Range" parent="." instance=ExtResource( 3 )]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="Range" index="0"]
+position = Vector2( 0, -8 )
+shape = SubResource( 3 )
+
 [node name="HealthLabel" type="Label" parent="."]
 modulate = Color( 1, 0.317647, 0.317647, 1 )
 margin_left = -24.0
@@ -47,5 +58,9 @@ __meta__ = {
 }
 [connection signal="ready" from="." to="." method="_update_health_ui"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
+[connection signal="body_entered" from="Range" to="." method="_on_Range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_Range_body_exited"]
 
 [editable path="Hitbox"]
+
+[editable path="Range"]

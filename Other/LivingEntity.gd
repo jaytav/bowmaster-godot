@@ -31,13 +31,13 @@ func _set_current_health(value: int):
 	_current_health = clamp(value, 0, _max_health)
 	
 	if _current_health == 0:
-		_die()
+		die()
 	
 	if _health_label:
 		_health_label.text = str(_current_health) + " HP"
 
 
-func _die():
+func die():
 	queue_free()
 
 
