@@ -28,18 +28,30 @@ _global_script_classes=[ {
 "class": "MainScene",
 "language": "GDScript",
 "path": "res://Autoload/MainScene.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://StateMachine/State.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://StateMachine/StateMachine.gd"
 } ]
 _global_script_class_icons={
 "Interactable": "",
 "Interactor": "",
 "LivingEntity": "",
-"MainScene": ""
+"MainScene": "",
+"State": "",
+"StateMachine": ""
 }
 
 [application]
 
 config/name="Bowmaster"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://StateMachine/TestStateMachine/TestStateMachineScene.tscn"
 
 [autoload]
 
