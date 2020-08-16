@@ -16,9 +16,9 @@ func _ready():
 
 
 # Entering state
-func enter():
+func enter(msg: Dictionary = {}):
 	if parent:
-		parent.enter()
+		parent.enter(msg)
 
 
 # Exiting state

@@ -23,10 +23,10 @@ func _physics_process(delta):
 	state.physics_process(delta)
 
 
-func transition_to(target_state_path: String):
+func transition_to(target_state_path: String, msg: Dictionary = {}):
 	if not has_node(target_state_path):
 		return
 	
 	state.exit()
 	state = get_node(target_state_path)
-	state.enter()
+	state.enter(msg)
