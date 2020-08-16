@@ -36,7 +36,7 @@ func unhandled_input(event):
 # used in StateMachine::_physics_process(delta)
 func physics_process(delta):
 	if parent:
-		parent.unhandled_input(delta)
+		parent.physics_process(delta)
 
 
 func _get_state_machine(node: Node):
