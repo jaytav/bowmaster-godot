@@ -1,5 +1,6 @@
 extends Label
 
+onready var state_machine = get_parent().get_node("StateMachine")
 
-func _on_TestStateMachine_state_changed(new_state):
-	text = new_state.name
+func _process(delta):
+	text = state_machine.state.name

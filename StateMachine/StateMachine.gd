@@ -1,36 +1,32 @@
 class_name StateMachine
-extends KinematicBody2D
+extends Node
 
-signal state_changed(new_state)
+export (NodePath) var initial_state
 
-export (NodePath) var INITIAL_STATE
+onready var state: State = get_node(initial_state)
 
-var _states_stack = []
-var _states_map = {}
-var _current_state: State
+
+func _init():
+	add_to_group("state_machine")
 
 
 func _ready():
-	for state_node in $States.get_children():
-		_states_map[state_node.name] = state_node
-		state_node.connect("finished", self, "change_state")
-	
-	change_state(INITIAL_STATE.get_name(INITIAL_STATE.get_name_count() - 1))
+	yield(owner, "ready")
+	state.enter()
 
 
-func _input(event):
-	_current_state.handle_input(event)
+func _unhandled_input(event):
+	state.unhandled_input(event)
 
 
 func _physics_process(delta):
-	_current_state.update(delta)
+	state.physics_process(delta)
 
 
-func change_state(state_name: String):
-	if _current_state:
-		_current_state.exit()
+func transition_to(target_state_path: String):
+	if not has_node(target_state_path):
+		return
 	
-	_current_state = _states_map[state_name]
-	_current_state.enter()
-	
-	emit_signal("state_changed", _current_state)
+	state.exit()
+	state = get_node(target_state_path)
+	state.enter()
