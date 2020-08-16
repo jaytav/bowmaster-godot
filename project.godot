@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Bowmaster"
-run/main_scene="res://StateMachine/TestStateMachine/TestStateMachineScene.tscn"
+run/main_scene="res://Main.tscn"
 
 [autoload]
 

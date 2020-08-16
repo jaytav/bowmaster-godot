@@ -16,6 +16,7 @@ position = Vector2( 592, -24 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -16 )
+_max_health = 3
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
 position = Vector2( 160, -8 )
@@ -28,3 +29,5 @@ position = Vector2( 424, -8 )
 
 [node name="HealthInteractable" parent="." instance=ExtResource( 5 )]
 position = Vector2( -120, -8 )
+
+[editable path="Player"]
