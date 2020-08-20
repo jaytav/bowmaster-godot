@@ -12,32 +12,32 @@ _global_script_classes=[ {
 "base": "RigidBody2D",
 "class": "Interactable",
 "language": "GDScript",
-"path": "res://Interact/Interactable.gd"
+"path": "res://src/interact/Interactable.gd"
 }, {
 "base": "Area2D",
 "class": "Interactor",
 "language": "GDScript",
-"path": "res://Interact/Interactor.gd"
+"path": "res://src/interact/Interactor.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "Reference",
 "class": "LivingEntity",
 "language": "GDScript",
-"path": "res://Other/LivingEntity.gd"
+"path": "res://src/other/LivingEntity.gd"
 }, {
 "base": "Node",
 "class": "MainScene",
 "language": "GDScript",
-"path": "res://Autoload/MainScene.gd"
+"path": "res://src/autoload/MainScene.gd"
 }, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
-"path": "res://StateMachine/State.gd"
+"path": "res://src/statemachine/State.gd"
 }, {
 "base": "Node",
 "class": "StateMachine",
 "language": "GDScript",
-"path": "res://StateMachine/StateMachine.gd"
+"path": "res://src/statemachine/StateMachine.gd"
 } ]
 _global_script_class_icons={
 "Interactable": "",
@@ -51,13 +51,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Bowmaster"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://src/main/Main.tscn"
 
 [autoload]
 
-Scenes="*res://Autoload/Scenes.gd"
-MainGUI="*res://Autoload/MainGUIScene.gd"
-MainWorld="*res://Autoload/MainWorldScene.gd"
+Scenes="*res://src/autoload/Scenes.gd"
+MainGUI="*res://src/autoload/MainGUIScene.gd"
+MainWorld="*res://src/autoload/MainWorldScene.gd"
 
 [display]
 
