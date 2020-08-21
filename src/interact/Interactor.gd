@@ -7,7 +7,7 @@ var _interactable: Interactable
 func _input(event):
 	if event.is_action_pressed("interact"):
 		if _interactable:
-			_interactable.get_interacted_with(self)
+			_interactable.get_interacted_with(owner)
 		else:
 			print("Failed to interact. No interactables in range")
 

@@ -12,5 +12,5 @@ func unhighlight():
 	_highlight.visible = false
 
 
-func get_interacted_with(interactor: Area2D):
+func get_interacted_with(interactor: KinematicBody2D):
 	queue_free()
