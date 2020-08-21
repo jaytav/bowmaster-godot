@@ -1,4 +1,4 @@
-extends LivingEntity
+extends KinematicBody2D
 
 onready var Arrow = load("src/arrow/Arrow.tscn")
 
@@ -11,12 +11,8 @@ func _input(event):
 		get_parent().add_child(arrow_instance)
 
 
-func die():
-	MainGUI.clear()
-	MainWorld.clear()
-	MainGUI.add(Scenes.GameOverGUI)
-	.die()
-
-
-func _health_label_ready():
-	_health_label = MainGUI.get("GameGUI/PlayerHealth")
+func _on_Health_current_health_updated(current_health):
+	if current_health == 0:
+		MainGUI.clear()
+		MainWorld.clear()
+		MainGUI.add(Scenes.GameOverGUI)
