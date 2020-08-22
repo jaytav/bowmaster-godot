@@ -1,74 +1,67 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://src/statemachine/StateMachine.gd" type="Script" id=1]
+[ext_resource path="res://src/interfaces/Entity.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/1x2.png" type="Texture" id=2]
-[ext_resource path="res://src/other/Hitbox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/player/Player.gd" type="Script" id=3]
 [ext_resource path="res://src/player/states/Move.gd" type="Script" id=4]
 [ext_resource path="res://src/interact/Interactor.gd" type="Script" id=5]
 [ext_resource path="res://src/player/states/Idle.gd" type="Script" id=6]
 [ext_resource path="res://src/player/states/Run.gd" type="Script" id=7]
 [ext_resource path="res://src/player/states/Air.gd" type="Script" id=8]
-[ext_resource path="res://src/player/Player.gd" type="Script" id=9]
 [ext_resource path="res://src/stats/Health.gd" type="Script" id=10]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.0
 height = 16.0
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 16 )
+[sub_resource type="CircleShape2D" id=2]
+radius = 8.0
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" instance=ExtResource( 1 )]
 collision_layer = 2
-script = ExtResource( 9 )
+script = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+[node name="Health" type="Node" parent="Stats" index="0"]
+script = ExtResource( 10 )
+_max_health = 3
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="StateMachine" parent="." index="1"]
+initial_state = NodePath("Move/Idle")
+
+[node name="Move" type="Node" parent="StateMachine" index="0"]
+script = ExtResource( 4 )
+acceleration = 25.0
+max_speed = 100.0
+gravity = 8.0
+jump_power = 200.0
+
+[node name="Idle" type="Node" parent="StateMachine/Move" index="0"]
+script = ExtResource( 6 )
+
+[node name="Run" type="Node" parent="StateMachine/Move" index="1"]
+script = ExtResource( 7 )
+
+[node name="Air" type="Node" parent="StateMachine/Move" index="2"]
+script = ExtResource( 8 )
+
+[node name="Sprite" parent="." index="2"]
 modulate = Color( 0.14902, 0.454902, 0.784314, 1 )
 texture = ExtResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="CollisionShape2D" parent="." index="3"]
+shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="." index="4"]
 current = true
 zoom = Vector2( 0.5, 0.5 )
-limit_left = -10000717
 
-[node name="Interactor" parent="." instance=ExtResource( 3 )]
+[node name="Interactor" type="Area2D" parent="." index="5"]
 collision_layer = 0
 collision_mask = 8
 script = ExtResource( 5 )
 
-[node name="CollisionShape2D" parent="Interactor" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactor" index="0"]
 shape = SubResource( 2 )
-
-[node name="Stats" type="Node" parent="."]
-
-[node name="Health" type="Node" parent="Stats"]
-script = ExtResource( 10 )
-_max_health = 3
-
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource( 1 )
-initial_state = NodePath("Move/Idle")
-
-[node name="Move" type="Node" parent="StateMachine"]
-script = ExtResource( 4 )
-acceleration = 50.0
-max_speed = 150.0
-gravity = 8.0
-jump_power = 200.0
-
-[node name="Idle" type="Node" parent="StateMachine/Move"]
-script = ExtResource( 6 )
-
-[node name="Run" type="Node" parent="StateMachine/Move"]
-script = ExtResource( 7 )
-
-[node name="Air" type="Node" parent="StateMachine/Move"]
-script = ExtResource( 8 )
+[connection signal="current_health_updated" from="Stats/Health" to="." method="_on_Health_current_health_updated"]
 [connection signal="area_entered" from="Interactor" to="Interactor" method="_on_Interactor_area_entered"]
 [connection signal="area_exited" from="Interactor" to="Interactor" method="_on_Interactor_area_exited"]
-[connection signal="current_health_updated" from="Stats/Health" to="." method="_on_Health_current_health_updated"]
-
-[editable path="Interactor"]

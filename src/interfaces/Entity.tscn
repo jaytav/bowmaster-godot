@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/statemachine/StateMachine.gd" type="Script" id=2]
+
+[node name="Entity" type="KinematicBody2D"]
+
+[node name="Stats" type="Node" parent="."]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
