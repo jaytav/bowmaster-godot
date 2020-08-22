@@ -6,6 +6,7 @@ export (float) var gravity
 
 var velocity := Vector2()
 
+onready var _range: Area2D = owner.get_node("Range")
 onready var edge_detector: RayCast2D = owner.get_node("EdgeDetector")
 
 
@@ -35,3 +36,9 @@ func set_velocity(state: State):
 
 func turn():
 	edge_detector.position.x *= -1
+	_range.position.x *= -1
+
+
+func _on_Range_body_entered(body):
+	velocity.y -= 100
+	turn()
