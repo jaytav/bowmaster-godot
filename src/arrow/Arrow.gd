@@ -28,8 +28,9 @@ func _physics_process(delta):
 
 
 func _on_Hitbox_body_entered(body):
-	if body is KinematicBody2D && body.name.begins_with("Enemy"):
-		body.take_damage(_damage)
+	if body.has_node("Stats/Health"):
+		var body_health = body.get_node("Stats/Health")
+		body_health.take_damage(_damage)
 	
 	# destroy arrow on any collision
 	queue_free()
