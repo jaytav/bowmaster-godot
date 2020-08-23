@@ -13,4 +13,4 @@ func unhighlight():
 
 
 func get_interacted_with(interactor: KinematicBody2D):
-	queue_free()
+	pass

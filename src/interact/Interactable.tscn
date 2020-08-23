@@ -8,13 +8,13 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
+[node name="Range" parent="." instance=ExtResource( 1 )]
+collision_layer = 8
+collision_mask = 0
+
 [node name="Highlight" type="Sprite" parent="."]
 visible = false
 
 [node name="Sprite" type="Sprite" parent="."]
-
-[node name="Range" parent="." instance=ExtResource( 1 )]
-collision_layer = 8
-collision_mask = 0
 
 [editable path="Range"]
