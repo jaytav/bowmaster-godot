@@ -9,7 +9,7 @@
 [node name="Game" type="Node2D"]
 
 [node name="GroundTileMap" parent="." instance=ExtResource( 3 )]
-tile_data = PoolIntArray( -65522, 0, 0, -65521, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 31, 0, 0, 32, 0, 0, 33, 0, 0, 36, 0, 0, 37, 0, 0 )
+tile_data = PoolIntArray( -65522, 0, 0, -65521, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -16 )
@@ -20,13 +20,7 @@ position = Vector2( -120, -8 )
 [node name="Enemy" parent="." instance=ExtResource( 6 )]
 position = Vector2( 160, -8 )
 
-[node name="Enemy2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 376, -8 )
-
-[node name="Enemy3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 480, -8 )
-
 [node name="Finish" parent="." instance=ExtResource( 1 )]
-position = Vector2( 592, -16 )
+position = Vector2( 240, -32 )
 
 [editable path="Player"]

@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Entity
 
 onready var Arrow = load("src/arrow/Arrow.tscn")
 

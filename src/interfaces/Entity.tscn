@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://src/statemachine/StateMachineDebug.gd" type="Script" id=1]
 [ext_resource path="res://src/statemachine/StateMachine.gd" type="Script" id=2]
+[ext_resource path="res://src/interfaces/Entity.gd" type="Script" id=3]
 
 [node name="Entity" type="KinematicBody2D"]
+script = ExtResource( 3 )
 
 [node name="Stats" type="Node" parent="."]
 
@@ -12,3 +15,32 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="StateMachineDebug" type="Control" parent="."]
+margin_left = -24.0
+margin_top = -40.0
+margin_right = 24.0
+margin_bottom = -24.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Panel" parent="StateMachineDebug"]
+modulate = Color( 1, 1, 1, 0.607843 )
+margin_right = 48.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StateLabel" type="Label" parent="StateMachineDebug"]
+margin_right = 96.0
+margin_bottom = 32.0
+rect_scale = Vector2( 0.5, 0.5 )
+text = "State Name"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

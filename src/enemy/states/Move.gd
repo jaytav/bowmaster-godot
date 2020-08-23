@@ -25,6 +25,8 @@ func set_velocity(state: State):
 	if state.name == "Idle":
 		velocity.x = lerp(velocity.x, 0, 0.2)
 		return
+	elif state.name == "Stagger":
+		velocity.x = lerp(velocity.x, 0,  0.75)
 	
 	var move_direction = get_move_direction()
 	
@@ -40,5 +42,4 @@ func turn():
 
 
 func _on_Range_body_entered(body):
-	velocity.y -= 100
-	turn()
+	state_machine.transition_to("Move/Stagger")
