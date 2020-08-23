@@ -1,5 +1,8 @@
 class_name Entity
 extends KinematicBody2D
+"""
+Entity are a game object which contains Stats and StateMachine nodes
+"""
 
 export (bool) var _debug = false
 
