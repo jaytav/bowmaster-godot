@@ -17,12 +17,12 @@ _global_script_classes=[ {
 "base": "RigidBody2D",
 "class": "Interactable",
 "language": "GDScript",
-"path": "res://src/interact/Interactable.gd"
+"path": "res://src/interfaces/Interactable.gd"
 }, {
 "base": "Area2D",
 "class": "Interactor",
 "language": "GDScript",
-"path": "res://src/interact/Interactor.gd"
+"path": "res://src/player/Interactor.gd"
 }, {
 "base": "Node",
 "class": "MainScene",

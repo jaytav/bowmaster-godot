@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/other/Hitbox.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/interact/Interactable.gd" type="Script" id=2]
+[ext_resource path="res://src/interfaces/Interactable.gd" type="Script" id=2]
 
 [node name="Interactable" type="RigidBody2D"]
 script = ExtResource( 2 )
