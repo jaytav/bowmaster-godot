@@ -10,7 +10,6 @@
 [ext_resource path="res://src/player/states/Air.gd" type="Script" id=8]
 [ext_resource path="res://src/stats/Health.gd" type="Script" id=10]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.0
 height = 16.0
@@ -21,6 +20,7 @@ radius = 8.0
 [node name="Player" instance=ExtResource( 1 )]
 collision_layer = 2
 script = ExtResource( 3 )
+_debug = false
 
 [node name="Health" type="Node" parent="Stats" index="0"]
 script = ExtResource( 10 )

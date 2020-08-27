@@ -6,6 +6,7 @@
 
 [node name="Entity" type="KinematicBody2D"]
 script = ExtResource( 3 )
+_debug = true
 
 [node name="Stats" type="Node" parent="."]
 
