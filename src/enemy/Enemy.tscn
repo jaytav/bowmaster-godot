@@ -22,7 +22,6 @@ extents = Vector2( 46, 24 )
 [node name="Enemy" instance=ExtResource( 1 )]
 collision_layer = 4
 script = ExtResource( 8 )
-_debug = true
 damage = 1
 
 [node name="Health" type="Node" parent="Stats" index="0"]

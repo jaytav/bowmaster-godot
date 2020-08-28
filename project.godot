@@ -38,6 +38,11 @@ _global_script_classes=[ {
 "class": "StateMachine",
 "language": "GDScript",
 "path": "res://src/statemachine/StateMachine.gd"
+}, {
+"base": "Entity",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://src/weapons/Weapon.gd"
 } ]
 _global_script_class_icons={
 "Entity": "",
@@ -45,7 +50,8 @@ _global_script_class_icons={
 "Interactor": "",
 "MainScene": "",
 "State": "",
-"StateMachine": ""
+"StateMachine": "",
+"Weapon": ""
 }
 
 [application]

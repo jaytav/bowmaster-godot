@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/weapons/Weapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/weapons/projectiles/Projectile.gd" type="Script" id=3]
+[ext_resource path="res://src/weapons/projectiles/states/Move.gd" type="Script" id=4]
+
+[node name="Projectile" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+_debug = false
+
+[node name="StateMachine" parent="." index="1"]
+initial_state = NodePath("Move")
+
+[node name="Move" type="Node" parent="StateMachine" index="0"]
+script = ExtResource( 4 )
+
+[editable path="DamageSource"]
