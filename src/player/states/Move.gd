@@ -11,7 +11,7 @@ var velocity := Vector2()
 func unhandled_input(event):
 	if event.is_action_pressed("jump") and owner.is_on_floor():
 		state_machine.transition_to("Move/Air", {"jump_power": jump_power})
-	elif not owner.is_on_floor():
+	elif not owner.is_on_floor() && state_machine.state.name != "Air":
 		state_machine.transition_to("Move/Air")
 
 

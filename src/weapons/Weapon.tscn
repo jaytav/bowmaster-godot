@@ -10,9 +10,9 @@ script = ExtResource( 3 )
 
 [node name="Damage" type="Node" parent="Stats" index="0"]
 script = ExtResource( 2 )
-amount = 1
 
-[node name="DamageSource" parent="." index="5" instance=ExtResource( 4 )]
+[node name="DamageSource" parent="." index="4" instance=ExtResource( 4 )]
+collision_mask = 31
 [connection signal="body_entered" from="DamageSource" to="." method="_on_DamageSource_body_entered"]
 
 [editable path="DamageSource"]

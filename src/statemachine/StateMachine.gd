@@ -1,6 +1,8 @@
 class_name StateMachine
 extends Node
 
+signal transitioned(state)
+
 export (NodePath) var initial_state
 
 onready var state: State = get_node(initial_state)
@@ -16,6 +18,7 @@ func _init():
 func _ready():
 	yield(owner, "ready")
 	state.enter()
+	emit_signal("transitioned", state)
 
 
 func _unhandled_input(event):
@@ -33,3 +36,4 @@ func transition_to(target_state_path: String, msg: Dictionary = {}):
 	state.exit()
 	state = get_node(target_state_path)
 	state.enter(msg)
+	emit_signal("transitioned", state)

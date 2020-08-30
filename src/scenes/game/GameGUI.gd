@@ -17,4 +17,4 @@ func _input(event):
 
 
 func _on_Player_current_health_updated(current_health: int):
-	_player_health_ui.text = str(current_health) + " HP"
+	_player_health_ui.text = str(current_health) + " / " + str(_player_health.max_health)

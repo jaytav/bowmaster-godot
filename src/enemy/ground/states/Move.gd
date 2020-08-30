@@ -6,7 +6,7 @@ export (float) var gravity
 
 var velocity := Vector2()
 
-onready var _range: Area2D = owner.get_node("Range")
+onready var _range: Area2D = owner.get_node("DetectionRange")
 onready var edge_detector: RayCast2D = owner.get_node("EdgeDetector")
 
 
@@ -27,6 +27,7 @@ func set_velocity(state: State):
 		return
 	elif state.name == "Stagger":
 		velocity.x = lerp(velocity.x, 0,  0.75)
+		return
 	
 	var move_direction = get_move_direction()
 	
@@ -39,7 +40,3 @@ func set_velocity(state: State):
 func turn():
 	edge_detector.position.x *= -1
 	_range.position.x *= -1
-
-
-func _on_Range_body_entered(body):
-	state_machine.transition_to("Move/Stagger")

@@ -1,103 +1,19 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://src/interfaces/Entity.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/textures/1x1.png" type="Texture" id=2]
+[ext_resource path="res://src/weapons/livingweapon/LivingWeapon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/enemy/Enemy.gd" type="Script" id=2]
 [ext_resource path="res://src/other/Hitbox.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/enemy/states/Move.gd" type="Script" id=4]
-[ext_resource path="res://src/stats/Health.gd" type="Script" id=5]
-[ext_resource path="res://src/enemy/states/Run.gd" type="Script" id=6]
-[ext_resource path="res://src/enemy/HealthLabel.gd" type="Script" id=7]
-[ext_resource path="res://src/enemy/Enemy.gd" type="Script" id=8]
-[ext_resource path="res://src/enemy/states/Idle.gd" type="Script" id=9]
-[ext_resource path="res://src/enemy/states/Stagger.gd" type="Script" id=10]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 8.0
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 46, 24 )
-
-[sub_resource type="CircleShape2D" id=3]
 
 [node name="Enemy" instance=ExtResource( 1 )]
 collision_layer = 4
-script = ExtResource( 8 )
-damage = 1
+script = ExtResource( 2 )
 
-[node name="Health" type="Node" parent="Stats" index="0"]
-script = ExtResource( 5 )
-_max_health = 1
-
-[node name="StateMachine" parent="." index="1"]
-initial_state = NodePath("Move/Idle")
-
-[node name="Move" type="Node" parent="StateMachine" index="0"]
-script = ExtResource( 4 )
-acceleration = 5.0
-max_speed = 75.0
-gravity = 8.0
-
-[node name="Idle" type="Node" parent="StateMachine/Move" index="0"]
-script = ExtResource( 9 )
-_idle_wait_time = 1.5
-
-[node name="Timer" type="Timer" parent="StateMachine/Move/Idle" index="0"]
-
-[node name="Run" type="Node" parent="StateMachine/Move" index="1"]
-script = ExtResource( 6 )
-
-[node name="Stagger" type="Node" parent="StateMachine/Move" index="2"]
-script = ExtResource( 10 )
-_stagger_wait_time = 0.5
-
-[node name="Timer" type="Timer" parent="StateMachine/Move/Stagger" index="0"]
-
-[node name="Sprite" parent="." index="2"]
-modulate = Color( 1, 0.247059, 0.247059, 1 )
-texture = ExtResource( 2 )
-
-[node name="CollisionShape2D" parent="." index="3"]
-shape = SubResource( 1 )
-
-[node name="Range" parent="." index="4" instance=ExtResource( 3 )]
-position = Vector2( 48, -16 )
+[node name="DamageSource" parent="." index="4"]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" parent="Range" index="0"]
-position = Vector2( -2.72848e-12, 0 )
-shape = SubResource( 2 )
-
-[node name="Hitbox" parent="." index="5" instance=ExtResource( 3 )]
+[node name="DetectionRange" parent="." index="5" instance=ExtResource( 3 )]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" parent="Hitbox" index="0"]
-shape = SubResource( 3 )
-
-[node name="EdgeDetector" type="RayCast2D" parent="." index="6"]
-position = Vector2( 15, 0 )
-enabled = true
-cast_to = Vector2( 0, 10 )
-
-[node name="HealthLabel" type="Label" parent="." index="7"]
-margin_left = -8.0
-margin_top = -16.0
-margin_right = 24.0
-margin_bottom = -2.0
-rect_scale = Vector2( 0.5, 0.5 )
-text = "X HP"
-align = 1
-valign = 1
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-[connection signal="current_health_updated" from="Stats/Health" to="." method="_on_Health_current_health_updated"]
-[connection signal="timeout" from="StateMachine/Move/Stagger/Timer" to="StateMachine/Move/Stagger" method="_on_Timer_timeout"]
-[connection signal="body_entered" from="Range" to="StateMachine/Move" method="_on_Range_body_entered"]
-[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
-
-[editable path="Range"]
-
-[editable path="Hitbox"]
+[editable path="DamageSource"]

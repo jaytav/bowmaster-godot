@@ -18,3 +18,7 @@ func exit():
 func _on_Timer_timeout():
 	parent.turn()
 	state_machine.transition_to("Move/Run")
+
+
+func _on_DetectionRange_body_entered(body):
+	state_machine.transition_to("Move/Stagger")

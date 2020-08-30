@@ -4,21 +4,23 @@
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/other/GroundTileMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/items/HealthInteractable.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/enemy/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/enemy/ground/SmallGroundEnemy.tscn" type="PackedScene" id=5]
 
 [node name="Game" type="Node2D"]
 
 [node name="GroundTileMap" parent="." instance=ExtResource( 3 )]
 tile_data = PoolIntArray( -65522, 0, 0, -65521, 0, 0, 65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0 )
 
-[node name="Enemy" parent="." instance=ExtResource( 6 )]
-position = Vector2( 160, -8 )
-
 [node name="Finish" parent="." instance=ExtResource( 1 )]
 position = Vector2( 240, -32 )
 
 [node name="HealthInteractable" parent="." instance=ExtResource( 4 )]
-position = Vector2( -120, -24 )
+position = Vector2( -120, -32 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -16 )
+_show_debug = true
+
+[node name="SmallGroundEnemy" parent="." instance=ExtResource( 5 )]
+position = Vector2( 128, -16 )
+_show_debug = true

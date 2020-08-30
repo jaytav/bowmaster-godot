@@ -1,3 +1,5 @@
+tool
+class_name Projectile
 extends Weapon
 
 

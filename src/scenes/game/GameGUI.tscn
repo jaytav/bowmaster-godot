@@ -6,6 +6,8 @@
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = -1152.0
+margin_bottom = -648.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -17,7 +19,8 @@ margin_left = 8.0
 margin_top = 8.0
 margin_right = 38.0
 margin_bottom = 24.0
-text = "X HP"
+rect_scale = Vector2( 2, 2 )
+text = "X / Y"
 __meta__ = {
 "_edit_use_anchors_": false
 }
