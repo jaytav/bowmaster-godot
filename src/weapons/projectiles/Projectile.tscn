@@ -6,6 +6,7 @@
 
 [node name="Projectile" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
+_destroy_on_impact = true
 
 [node name="StateMachine" parent="." index="1"]
 initial_state = NodePath("Move")
