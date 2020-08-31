@@ -12,8 +12,8 @@ func get(child_tree: String):
 	return _scene.get_node(child_tree)
 
 
-func add(child_scene: PackedScene):
-	_scene.add_child(child_scene.instance())
+func add(child_scene: Node):
+	_scene.add_child(child_scene)
 
 
 func clear():

@@ -2,10 +2,10 @@ extends Control
 
 func _on_RestartButton_pressed():
 	MainGUI.clear()
-	MainWorld.add(Scenes.GameWorld)
-	MainGUI.add(Scenes.GameGUI)
+	MainWorld.add(Scenes.load("GameWorld"))
+	MainGUI.add(Scenes.load("GameGUI"))
 
 
 func _on_MainMenuButton_pressed():
 	MainGUI.clear()
-	MainGUI.add(Scenes.MainMenuGUI)
+	MainGUI.add(Scenes.load("MainMenuGUI"))
