@@ -113,6 +113,10 @@ Scenes="*res://src/autoload/Scenes.gd"
 MainGUI="*res://src/autoload/MainGUIScene.gd"
 MainWorld="*res://src/autoload/MainWorldScene.gd"
 
+[debug]
+
+gdscript/warnings/enable=false
+
 [display]
 
 window/size/width=1440

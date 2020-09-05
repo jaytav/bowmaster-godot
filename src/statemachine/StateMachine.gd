@@ -9,14 +9,15 @@ onready var state: State = get_node(initial_state)
 
 
 func _init():
-	if !initial_state:
-		push_error("StateMachine.initial_state not initialised")
-	
 	add_to_group("state_machine")
 
 
 func _ready():
 	yield(owner, "ready")
+	
+	if !initial_state:
+		push_error("StateMachine.initial_state not initialised")
+	
 	state.enter()
 	emit_signal("transitioned", state)
 
