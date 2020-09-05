@@ -4,7 +4,7 @@
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/other/GroundTileMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/items/HealthInteractable.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/enemy/ground/SmallGroundEnemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/enemy/air/SmallAirEnemy.tscn" type="PackedScene" id=5]
 
 [node name="Game" type="Node2D"]
 
@@ -21,6 +21,7 @@ position = Vector2( -120, -32 )
 position = Vector2( 0, -16 )
 _show_debug = true
 
-[node name="SmallGroundEnemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 128, -16 )
+[node name="SmallAirEnemy" parent="." instance=ExtResource( 5 )]
+position = Vector2( 160, -32 )
+collision_layer = 4
 _show_debug = true
