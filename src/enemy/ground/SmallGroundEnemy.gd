@@ -1,2 +1,3 @@
+tool
 class_name SmallGroundEnemy
 extends GroundEnemy
