@@ -5,7 +5,7 @@
 [ext_resource path="res://src/enemy/air/states/Move.gd" type="Script" id=3]
 [ext_resource path="res://src/enemy/air/states/Idle.gd" type="Script" id=4]
 [ext_resource path="res://src/enemy/air/states/Fly.gd" type="Script" id=5]
-[ext_resource path="res://src/statemachine/StateMachine.gd" type="Script" id=6]
+[ext_resource path="res://src/enemy/air/states/Follow.gd" type="Script" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 100.0
@@ -14,7 +14,6 @@ radius = 100.0
 script = ExtResource( 2 )
 
 [node name="StateMachine" parent="." index="1"]
-script = ExtResource( 6 )
 initial_state = NodePath("Move")
 
 [node name="Move" type="Node" parent="StateMachine" index="0"]
@@ -32,5 +31,8 @@ _idle_wait_time = 1.0
 [node name="Fly" type="Node" parent="StateMachine/Move" index="1"]
 script = ExtResource( 5 )
 _max_speed = 75.0
+
+[node name="Follow" type="Node" parent="StateMachine/Move" index="2"]
+script = ExtResource( 6 )
 
 [editable path="DamageSource"]
