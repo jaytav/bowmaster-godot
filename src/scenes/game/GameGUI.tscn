@@ -6,21 +6,64 @@
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -1152.0
-margin_bottom = -648.0
+margin_right = -1192.0
+margin_bottom = -690.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayerHealth" type="Label" parent="."]
-modulate = Color( 0.94902, 0.266667, 0.266667, 1 )
+[node name="TopLeftBackground" type="Panel" parent="."]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 38.0
-margin_bottom = 24.0
+margin_right = 248.0
+margin_bottom = 120.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerHealth" type="Label" parent="."]
+modulate = Color( 0.917647, 0.47451, 0.47451, 1 )
+margin_left = 144.0
+margin_top = 24.0
+margin_right = 174.0
+margin_bottom = 40.0
 rect_scale = Vector2( 2, 2 )
 text = "X / Y"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerHealthLabel" type="Label" parent="."]
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 54.0
+margin_bottom = 40.0
+rect_scale = Vector2( 2, 2 )
+text = "Health"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerAmmo" type="Label" parent="."]
+modulate = Color( 0.796078, 0.698039, 0.431373, 1 )
+margin_left = 144.0
+margin_top = 80.0
+margin_right = 174.0
+margin_bottom = 96.0
+rect_scale = Vector2( 2, 2 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerAmmoLabel" type="Label" parent="."]
+margin_left = 24.0
+margin_top = 80.0
+margin_right = 67.0
+margin_bottom = 96.0
+rect_scale = Vector2( 2, 2 )
+text = "Ammo"
 __meta__ = {
 "_edit_use_anchors_": false
 }

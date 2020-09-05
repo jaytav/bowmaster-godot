@@ -24,7 +24,6 @@ _show_debug = true
 
 [node name="SmallAirEnemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 72, -104 )
-collision_layer = 4
 _show_debug = true
 
 [node name="SmallGroundEnemy" parent="." instance=ExtResource( 6 )]
