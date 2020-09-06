@@ -28,6 +28,7 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="current_health_updated" from="Stats/Health" to="." method="_on_Health_current_health_updated"]
+[connection signal="depleted" from="Stats/Health" to="." method="_on_Health_depleted"]
+[connection signal="value_updated" from="Stats/Health" to="." method="_on_Health_value_updated"]
 
 [editable path="DamageSource"]

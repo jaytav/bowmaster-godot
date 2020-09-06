@@ -9,18 +9,17 @@ onready var _ammo_replenishment_timer = $Stats/Ammo/ReplenishmentTimer
 
 
 func _input(event):
-	if event.is_action_pressed("shoot") and _ammo.current_ammo > 0:
+	if event.is_action_pressed("shoot") and _ammo.value > 0:
 		var arrow_instance = Arrow.instance()
 		MainWorld.add(arrow_instance)
 		arrow_instance.launch(get_global_position(), get_global_mouse_position())
 		_ammo.shoot()
 
 
-func _on_Health_current_health_updated(current_health):
-	if current_health == 0:
-		MainGUI.clear()
-		MainWorld.clear()
-		MainGUI.add(Scenes.load("GameOverGUI"))
+func _on_Health_depleted():
+	MainGUI.clear()
+	MainWorld.clear()
+	MainGUI.add(Scenes.load("GameOverGUI"))
 
 
 func _on_Ammo_current_ammo_updated(current_ammo):

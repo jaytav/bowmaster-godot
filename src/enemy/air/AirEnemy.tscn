@@ -34,5 +34,6 @@ _max_speed = 75.0
 
 [node name="Follow" type="Node" parent="StateMachine/Move" index="2"]
 script = ExtResource( 6 )
+[connection signal="body_entered" from="DamageSource" to="." method="_on_DamageSource_body_entered"]
 
 [editable path="DamageSource"]

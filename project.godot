@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/enemy/air/AirEnemy.gd"
 }, {
+"base": "Stat",
+"class": "CapacityStat",
+"language": "GDScript",
+"path": "res://src/stats/interfaces/CapacityStat.gd"
+}, {
 "base": "LivingWeapon",
 "class": "Enemy",
 "language": "GDScript",
@@ -29,7 +34,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/enemy/ground/GroundEnemy.gd"
 }, {
-"base": "Node",
+"base": "CapacityStat",
 "class": "Health",
 "language": "GDScript",
 "path": "res://src/stats/Health.gd"
@@ -59,6 +64,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/weapons/projectiles/Projectile.gd"
 }, {
+"base": "CapacityStat",
+"class": "ReplenishStat",
+"language": "GDScript",
+"path": "res://src/stats/interfaces/ReplenishStat.gd"
+}, {
 "base": "AirEnemy",
 "class": "SmallAirEnemy",
 "language": "GDScript",
@@ -68,6 +78,11 @@ _global_script_classes=[ {
 "class": "SmallGroundEnemy",
 "language": "GDScript",
 "path": "res://src/enemy/ground/SmallGroundEnemy.gd"
+}, {
+"base": "Node",
+"class": "Stat",
+"language": "GDScript",
+"path": "res://src/stats/interfaces/Stat.gd"
 }, {
 "base": "Node",
 "class": "State",
@@ -86,6 +101,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AirEnemy": "",
+"CapacityStat": "",
 "Enemy": "",
 "Entity": "",
 "GroundEnemy": "",
@@ -95,8 +111,10 @@ _global_script_class_icons={
 "LivingWeapon": "",
 "MainScene": "",
 "Projectile": "",
+"ReplenishStat": "",
 "SmallAirEnemy": "",
 "SmallGroundEnemy": "",
+"Stat": "",
 "State": "",
 "StateMachine": "",
 "Weapon": ""

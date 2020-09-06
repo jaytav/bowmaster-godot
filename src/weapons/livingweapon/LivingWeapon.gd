@@ -6,11 +6,15 @@ onready var _health_label: Label = $EntityUI/HealthLabel
 onready var _health: Health = $Stats/Health
 
 func _ready():
-	_health_label.text = str(_health.current_health) + " / " + str(_health.max_health)
+	_on_Health_value_updated(_health.value)
 
 
-func _on_Health_current_health_updated(current_health):
-	if current_health == 0:
-		queue_free()
+func _on_Health_value_updated(value):
+	if !_health:
+		return
 	
-	_health_label.text = str(_health.current_health) + " / " + str(_health.max_health)
+	_health_label.text = str(_health.value) + " / " + str(_health.max_value)
+
+
+func _on_Health_depleted():
+	queue_free()

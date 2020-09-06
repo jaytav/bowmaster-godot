@@ -1,21 +1,15 @@
 class_name Health
-extends Node
+extends CapacityStat
 
-signal current_health_updated(current_health)
-
-export (int) var max_health
-
-onready var current_health = max_health setget set_current_health
+signal depleted()
 
 
-func take_damage(damage: int):
-	self.current_health = clamp(current_health - damage, 0, max_health)
+func take_damage(amount: int):
+	set_value(value - amount)
+	
+	if value == 0:
+		emit_signal("depleted")
 
 
 func heal(amount: int):
-	take_damage(-amount)
-
-
-func set_current_health(amount: int):
-	current_health = amount
-	emit_signal("current_health_updated", current_health)
+	set_value(value + amount)

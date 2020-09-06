@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/enemy/air/AirEnemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/enemy/air/SmallAirEnemy.gd" type="Script" id=2]
+[ext_resource path="res://src/statemachine/StateMachine.gd" type="Script" id=3]
 [ext_resource path="res://assets/textures/1x1.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -22,11 +23,11 @@ radius = 72.0
 [node name="SmallAirEnemy" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="Damage" parent="Stats" index="0"]
-amount = 1
-
 [node name="Health" parent="Stats" index="1"]
-max_health = 1
+max_value = 1
+
+[node name="StateMachine" parent="." index="1"]
+script = ExtResource( 3 )
 
 [node name="Move" parent="StateMachine" index="0"]
 _acceleration = 2.5
@@ -54,6 +55,7 @@ shape = SubResource( 4 )
 
 [node name="CollisionShape2D" parent="DetectionRange" index="0"]
 shape = SubResource( 5 )
+[connection signal="body_entered" from="DamageSource" to="." method="_on_DamageSource_body_entered"]
 [connection signal="body_entered" from="DetectionRange" to="StateMachine/Move" method="_on_DetectionRange_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="StateMachine/Move" method="_on_DetectionRange_body_exited"]
 
