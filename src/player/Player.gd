@@ -5,7 +5,6 @@ export (float) var _ammo_replenishment_time
 
 onready var Arrow: PackedScene = load("src/weapons/projectiles/arrows/BasicArrow.tscn")
 onready var _ammo = $Stats/Ammo
-onready var _ammo_replenishment_timer = $Stats/Ammo/ReplenishmentTimer
 
 
 func _input(event):
@@ -20,14 +19,3 @@ func _on_Health_depleted():
 	MainGUI.clear()
 	MainWorld.clear()
 	MainGUI.add(Scenes.load("GameOverGUI"))
-
-
-func _on_Ammo_current_ammo_updated(current_ammo):
-	if current_ammo < _ammo.capacity:
-		_ammo_replenishment_timer.start(_ammo_replenishment_time)
-	else:
-		_ammo_replenishment_timer.stop()
-
-
-func _on_ReplenishmentTimer_timeout():
-	_ammo.replenish()
