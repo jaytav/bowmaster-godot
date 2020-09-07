@@ -19,6 +19,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/stats/interfaces/CapacityStat.gd"
 }, {
+"base": "Timer",
+"class": "Effect",
+"language": "GDScript",
+"path": "res://src/effect/Effect.gd"
+}, {
 "base": "LivingWeapon",
 "class": "Enemy",
 "language": "GDScript",
@@ -102,6 +107,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "AirEnemy": "",
 "CapacityStat": "",
+"Effect": "",
 "Enemy": "",
 "Entity": "",
 "GroundEnemy": "",
