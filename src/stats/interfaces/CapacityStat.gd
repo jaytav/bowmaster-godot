@@ -5,7 +5,8 @@ export (int) var max_value
 
 
 func _ready():
-	self.value = max_value
+	if !initial_value:
+		self.value = max_value
 
 
 func set_value(new_value: int):
