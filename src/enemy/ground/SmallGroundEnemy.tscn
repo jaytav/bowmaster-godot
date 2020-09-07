@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/enemy/ground/GroundEnemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/enemy/ground/states/Stagger.gd" type="Script" id=2]
 [ext_resource path="res://src/enemy/ground/SmallGroundEnemy.gd" type="Script" id=3]
-[ext_resource path="res://src/statemachine/StateMachine.gd" type="Script" id=4]
 [ext_resource path="res://assets/textures/1x1.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -17,11 +16,11 @@ extents = Vector2( 80, 32 )
 [node name="SmallGroundEnemy" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
+[node name="Damage" parent="Stats" index="0"]
+initial_value = 1
+
 [node name="Health" parent="Stats" index="1"]
 max_value = 3
-
-[node name="StateMachine" parent="." index="1"]
-script = ExtResource( 4 )
 
 [node name="Move" parent="StateMachine" index="0"]
 acceleration = 10.0
@@ -57,18 +56,8 @@ shape = SubResource( 3 )
 position = Vector2( 20, 0 )
 
 [node name="HealthLabel" parent="EntityUI" index="1"]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -24.0
-margin_right = 72.0
-rect_scale = Vector2( 0.5, 0.5 )
 text = "X HP"
-align = 1
-valign = 1
 [connection signal="timeout" from="StateMachine/Move/Stagger/Timer" to="StateMachine/Move/Stagger" method="_on_Timer_timeout"]
-[connection signal="body_entered" from="DamageSource" to="." method="_on_DamageSource_body_entered"]
 [connection signal="body_entered" from="DetectionRange" to="StateMachine/Move/Stagger" method="_on_DetectionRange_body_entered"]
 
 [editable path="DamageSource"]
