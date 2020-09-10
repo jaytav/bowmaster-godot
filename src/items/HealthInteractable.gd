@@ -1,10 +1,13 @@
 extends Interactable
 
+export (float) var _length
+export (float) var _tick
 export (int) var _health
 
 
 func get_interacted_with(interactor: KinematicBody2D):
-	if interactor.has_node("Stats/Health"):
-		var interactor_health = interactor.get_node("Stats/Health")
-		interactor_health.heal(_health)
-		queue_free()
+	var effect = EffectLoader.get("HealthRegeneration")
+	effect.length = _length
+	effect.tick = _tick
+	effect.value = _health
+	interactor.apply_effect(effect)

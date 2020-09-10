@@ -136,6 +136,7 @@ run/main_scene="res://src/main/Main.tscn"
 Scenes="*res://src/autoload/Scenes.gd"
 MainGUI="*res://src/autoload/MainGUIScene.gd"
 MainWorld="*res://src/autoload/MainWorldScene.gd"
+EffectLoader="*res://src/autoload/EffectLoader.gd"
 
 [debug]
 

@@ -1,24 +1,28 @@
 class_name Effect
 extends Timer
 
-export (float) var _length
-export (float) var _tick
+export (float) var length
+export (float) var tick
 
 
 func _ready():
-	start(_tick)
+	start(tick)
 
 
 func _process(delta):
-	_length -= delta
+	length -= delta
 	
-	if _length < 0:
+	if length < 0:
 		queue_free()
+
+
+# Determines whether effect is applyable to an Entity
+func can_apply(entity: Node) -> bool:
+	return true
 
 
 # Action taken every tick
 func do_effect():
-	print("doing effect")
 	pass
 
 

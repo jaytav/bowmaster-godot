@@ -16,6 +16,9 @@ position = Vector2( 240, -32 )
 
 [node name="HealthInteractable" parent="." instance=ExtResource( 4 )]
 position = Vector2( -120, -32 )
+_length = 5.0
+_tick = 0.25
+_health = 2
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -16 )
@@ -23,4 +26,3 @@ _show_debug = true
 
 [node name="SmallAirEnemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 152, -72 )
-_show_debug = true
