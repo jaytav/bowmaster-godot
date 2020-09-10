@@ -11,6 +11,8 @@ __meta__ = {
 
 [node name="Stats" type="Node" parent="."]
 
+[node name="Effects" type="Node" parent="."]
+
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 2 )
 
