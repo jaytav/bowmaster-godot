@@ -4,10 +4,10 @@ extends Entity
 export (float) var _ammo_replenishment_time
 
 onready var Arrow: PackedScene = load("src/weapons/projectiles/arrows/BasicArrow.tscn")
-onready var _ammo = $Stats/Ammo
+onready var _ammo: Ammo = $Stats/Ammo
 
 
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("shoot") and _ammo.value > 0:
 		var arrow_instance = Arrow.instance()
 		MainWorld.add(arrow_instance)
@@ -15,7 +15,7 @@ func _input(event):
 		_ammo.shoot()
 
 
-func _on_Health_depleted():
+func _on_Health_depleted() -> void:
 	MainGUI.clear()
 	MainWorld.clear()
 	MainGUI.add(Scenes.load("GameOverGUI"))

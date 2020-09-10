@@ -6,12 +6,12 @@
 [ext_resource path="res://assets/textures/1x1.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 8.0
 
-[sub_resource type="CircleShape2D" id=2]
-
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 80, 32 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 8.0
 
 [node name="SmallGroundEnemy" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
@@ -36,24 +36,24 @@ _stagger_wait_time = 0.5
 
 [node name="Timer" type="Timer" parent="StateMachine/Move/Stagger" index="0"]
 
-[node name="Sprite" parent="." index="2"]
+[node name="Sprite" parent="." index="3"]
 modulate = Color( 0.890196, 0.415686, 0.415686, 1 )
 texture = ExtResource( 5 )
 
-[node name="CollisionShape2D" parent="." index="3"]
-shape = SubResource( 1 )
-
 [node name="CollisionShape2D" parent="DamageSource" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="DetectionRange" parent="." index="5"]
 position = Vector2( 60, -20 )
 
 [node name="CollisionShape2D" parent="DetectionRange" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="EdgeDetector" parent="." index="6"]
 position = Vector2( 20, 0 )
+
+[node name="CollisionShape2D" parent="." index="7"]
+shape = SubResource( 3 )
 
 [node name="HealthLabel" parent="EntityUI" index="1"]
 text = "X HP"

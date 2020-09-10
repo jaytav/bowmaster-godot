@@ -4,7 +4,7 @@ extends Area2D
 var _interactable: Interactable
 
 
-func _input(event):
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		if _interactable:
 			_interactable.get_interacted_with(owner)
@@ -12,7 +12,7 @@ func _input(event):
 			print("Failed to interact. No interactables in range")
 
 
-func _on_Interactor_area_entered(area):
+func _on_Interactor_area_entered(area: Area2D) -> void:
 	if _interactable != null:
 		_interactable.unhighlight()
 		
@@ -20,7 +20,7 @@ func _on_Interactor_area_entered(area):
 	_interactable.highlight()
 
 
-func _on_Interactor_area_exited(area):
+func _on_Interactor_area_exited(area: Area2D) -> void:
 	# skip on_area_exit if not exiting current _interactable
 	if area.get_parent().get_instance_id() != _interactable.get_instance_id():
 		return
@@ -30,7 +30,7 @@ func _on_Interactor_area_exited(area):
 
 
 # Gets next overlapping interactable, otherwise set null
-func _assign_next_interactable():
+func _assign_next_interactable() -> void:
 	for area in get_overlapping_areas():
 		var interactable = area.get_parent()
 		if interactable.get_instance_id() != _interactable.get_instance_id():

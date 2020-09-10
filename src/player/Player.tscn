@@ -21,7 +21,6 @@ height = 16.0
 [node name="Player" instance=ExtResource( 1 )]
 collision_layer = 2
 script = ExtResource( 3 )
-_show_debug = false
 _ammo_replenishment_time = 1.0
 
 [node name="Health" type="Node" parent="Stats" index="0"]

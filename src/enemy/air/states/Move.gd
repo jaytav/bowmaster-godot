@@ -6,25 +6,25 @@ export (CircleShape2D) var _target_position_shape
 
 var max_speed: float
 
-var _velocity := Vector2()
+var _velocity: Vector2 = Vector2()
 var _current_target_area: Area2D
 var _current_patrol_area: Area2D
-var _rng := RandomNumberGenerator.new()
+var _rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 onready var _area: PackedScene = preload("res://src/enemy/patrol/PatrolArea.tscn")
 
 
-func enter(msg: Dictionary = {}):
+func enter(msg: Dictionary = {}) -> void:
 	_set_current_patrol_area()
 	state_machine.transition_to("Move/Idle")
 
 
-func physics_process(delta):
+func physics_process(delta: float) -> void:
 	_set_velocity(state_machine.state)
 	_velocity = owner.move_and_slide(_velocity, Vector2.UP)
 
 
-func _set_velocity(state: State):
+func _set_velocity(state: State) -> void:
 	var target_position = _current_target_area.position if _current_target_area else owner.position
 	
 	if state.name == "Follow":
@@ -45,7 +45,7 @@ func _set_velocity(state: State):
 		_velocity.y = max(_velocity.y - _acceleration, -max_speed)
 
 
-func _set_current_patrol_area():
+func _set_current_patrol_area() -> void:
 	if _current_patrol_area:
 		_current_patrol_area.queue_free()
 	
@@ -55,7 +55,7 @@ func _set_current_patrol_area():
 	MainWorld.add(_current_patrol_area)
 
 
-func set_target_position():
+func set_target_position() -> void:
 	if _current_target_area:
 		_current_target_area.queue_free()
 	
@@ -72,15 +72,15 @@ func set_target_position():
 	MainWorld.add(_current_target_area)
 
 
-func _on_current_target_area_entered(body):
+func _on_current_target_area_entered(body: Node) -> void:
 	if body.get_instance_id() == owner.get_instance_id():
 		state_machine.transition_to("Move/Idle")
 
 
-func _on_DetectionRange_body_entered(body):
+func _on_DetectionRange_body_entered(body: Node) -> void:
 	state_machine.transition_to("Move/Follow", {"body": body})
 
 
-func _on_DetectionRange_body_exited(body):
+func _on_DetectionRange_body_exited(body: Node) -> void:
 	state_machine.transition_to("Move")
 	set_target_position()

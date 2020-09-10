@@ -4,22 +4,22 @@ export (float) var acceleration
 export (float) var max_speed
 export (float) var gravity
 
-var velocity := Vector2()
+var velocity: Vector2 = Vector2()
 
 onready var _range: Area2D = owner.get_node("DetectionRange")
 onready var edge_detector: RayCast2D = owner.get_node("EdgeDetector")
 
 
-func physics_process(delta):
+func physics_process(delta: float) -> void:
 	set_velocity(state_machine.state)
 	velocity = owner.move_and_slide(velocity, Vector2.UP)
 
 
-func get_move_direction():
+func get_move_direction() -> Vector2:
 	return Vector2(edge_detector.position.x, 0.0)
 
 
-func set_velocity(state: State):
+func set_velocity(state: State) -> void:
 	velocity.y += gravity
 	
 	if state.name == "Idle":
@@ -37,6 +37,6 @@ func set_velocity(state: State):
 		velocity.x = max(velocity.x - acceleration, -max_speed)
 
 
-func turn():
+func turn() -> void:
 	edge_detector.position.x *= -1
 	_range.position.x *= -1

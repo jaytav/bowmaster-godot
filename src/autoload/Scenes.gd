@@ -1,6 +1,6 @@
 extends Node
 
-var _scenes = {
+var _scenes: Dictionary = {
 	# Main Menu
 	"MainMenuGUI": preload("res://src/scenes/mainmenu/MainMenuGUI.tscn"),
 
@@ -16,5 +16,5 @@ var _scenes = {
 }
 
 
-func load(scene: String):
+func load(scene: String) -> Node:
 	return _scenes[scene].instance()

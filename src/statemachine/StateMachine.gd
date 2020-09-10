@@ -8,11 +8,11 @@ export (NodePath) var initial_state
 onready var state: State = get_node(initial_state)
 
 
-func _init():
+func _init() -> void:
 	add_to_group("state_machine")
 
 
-func _ready():
+func _ready() -> void:
 	yield(owner, "ready")
 	
 	if !initial_state:
@@ -22,15 +22,15 @@ func _ready():
 	emit_signal("transitioned", state)
 
 
-func _unhandled_input(event):
+func _unhandled_input(event: InputEvent) -> void:
 	state.unhandled_input(event)
 
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	state.physics_process(delta)
 
 
-func transition_to(target_state_path: String, msg: Dictionary = {}):
+func transition_to(target_state_path: String, msg: Dictionary = {}) -> void:
 	if not has_node(target_state_path):
 		return
 	

@@ -5,25 +5,25 @@ export (float) var max_speed
 export (float) var gravity
 export (float) var jump_power
 
-var velocity := Vector2()
+var velocity: Vector2 = Vector2()
 
 
-func unhandled_input(event):
+func unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("jump") and owner.is_on_floor():
 		state_machine.transition_to("Move/Air", {"jump_power": jump_power})
 	elif not owner.is_on_floor() && state_machine.state.name != "Air":
 		state_machine.transition_to("Move/Air")
 
 
-func physics_process(delta):
+func physics_process(delta: float) -> void:
 	velocity = owner.move_and_slide(velocity, Vector2.UP)
 
 
-func get_move_direction():
+func get_move_direction() -> Vector2:
 	return Vector2(Input.get_action_strength("right") - Input.get_action_strength("left"), 0.0)
 
 
-func set_velocity(state: State):
+func set_velocity(state: State) -> void:
 	var move_direction = get_move_direction()
 	var acceleration_multiplier
 	var friction_weight

@@ -7,7 +7,7 @@ export (bool) var _destroy_on_impact
 onready var damage: Node = $Stats/Damage
 
 
-func _on_DamageSource_body_entered(body):
+func _on_DamageSource_body_entered(body: Node) -> void:
 	if body.has_node("Stats/Health"):
 		body.get_node("Stats/Health").take_damage(damage.value)
 	

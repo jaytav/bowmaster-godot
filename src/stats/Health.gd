@@ -4,12 +4,12 @@ extends CapacityStat
 signal depleted()
 
 
-func take_damage(amount: int):
+func take_damage(amount: int) -> void:
 	set_value(value - amount)
 	
 	if value == 0:
 		emit_signal("depleted")
 
 
-func heal(amount: int):
+func heal(amount: int) -> void:
 	set_value(value + amount)

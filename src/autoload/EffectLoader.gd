@@ -1,6 +1,6 @@
 extends Node
 
-var _effects = {}
+var _effects: Dictionary = {}
 
 # Lazy load PackedScene to dictionary and get Effect by name
 func get(effect: String) -> Effect:

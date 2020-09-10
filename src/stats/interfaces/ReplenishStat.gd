@@ -7,14 +7,14 @@ export (int) var _replenish_amount
 var _timer: Timer
 
 
-func _ready():
+func _ready() -> void:
 	_timer = Timer.new()
 	_timer.connect("timeout", self, "_on_Timer_timeout")
 	add_child(_timer)
 	._ready()
 
 
-func set_value(new_value: int):
+func set_value(new_value: int) -> void:
 	.set_value(new_value)
 	
 	if _timer:
@@ -25,5 +25,5 @@ func set_value(new_value: int):
 	
 
 
-func _on_Timer_timeout():
+func _on_Timer_timeout() -> void:
 	self.value += _replenish_amount

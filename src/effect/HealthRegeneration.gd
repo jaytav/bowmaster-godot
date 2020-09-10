@@ -3,7 +3,7 @@ extends Effect
 export (int) var value
 
 # Health Stat
-onready var _health
+onready var _health: Health
 
 
 func can_apply(entity: Node) -> bool:
@@ -11,6 +11,5 @@ func can_apply(entity: Node) -> bool:
 	return _health != null
 
 
-func do_effect():
+func do_effect() -> void:
 	_health.heal(value)
-	return

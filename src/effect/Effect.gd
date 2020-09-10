@@ -5,11 +5,11 @@ export (float) var length
 export (float) var tick
 
 
-func _ready():
+func _ready() -> void:
 	start(tick)
 
 
-func _process(delta):
+func _process(delta: float) -> void:
 	length -= delta
 	
 	if length < 0:
@@ -22,9 +22,9 @@ func can_apply(entity: Node) -> bool:
 
 
 # Action taken every tick
-func do_effect():
+func do_effect() -> void:
 	pass
 
 
-func _on_Effect_timeout():
+func _on_Effect_timeout() -> void:
 	do_effect()

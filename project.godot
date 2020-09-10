@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/enemy/air/AirEnemy.gd"
 }, {
+"base": "ReplenishStat",
+"class": "Ammo",
+"language": "GDScript",
+"path": "res://src/stats/Ammo.gd"
+}, {
 "base": "Stat",
 "class": "CapacityStat",
 "language": "GDScript",
@@ -106,6 +111,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "AirEnemy": "",
+"Ammo": "",
 "CapacityStat": "",
 "Effect": "",
 "Enemy": "",
