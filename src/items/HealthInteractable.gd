@@ -11,3 +11,4 @@ func get_interacted_with(interactor: KinematicBody2D):
 	effect.tick = _tick
 	effect.value = _health
 	interactor.apply_effect(effect)
+	queue_free()
