@@ -6,7 +6,7 @@ export (int) var _health
 
 
 func get_interacted_with(interactor: KinematicBody2D) -> void:
-	var effect = EffectLoader.get("HealthRegeneration")
+	var effect = EffectLoader.get_instance("HealthRegeneration")
 	effect.length = _length
 	effect.tick = _tick
 	effect.value = _health
