@@ -67,7 +67,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "MainScene",
 "language": "GDScript",
-"path": "res://src/autoload/MainScene.gd"
+"path": "res://src/autoload/interfaces/MainScene.gd"
 }, {
 "base": "Weapon",
 "class": "Projectile",
@@ -143,6 +143,7 @@ Scenes="*res://src/autoload/Scenes.gd"
 MainGUI="*res://src/autoload/MainGUIScene.gd"
 MainWorld="*res://src/autoload/MainWorldScene.gd"
 EffectLoader="*res://src/autoload/EffectLoader.gd"
+EffectLoadera="*res://src/autoload/EffectLoader.gd"
 
 [debug]
 
