@@ -10,7 +10,7 @@ script = ExtResource( 3 )
 [node name="Health" type="Node" parent="Stats" index="1"]
 script = ExtResource( 1 )
 
-[node name="StateMachine" parent="." index="1"]
+[node name="StateMachine" parent="." index="2"]
 initial_state = NodePath("../../Enemy/StateMachine/Idle")
 
 [node name="HealthLabel" type="Label" parent="EntityUI" index="1"]

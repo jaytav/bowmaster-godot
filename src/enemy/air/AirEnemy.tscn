@@ -13,7 +13,7 @@ radius = 100.0
 [node name="AirEnemy" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="StateMachine" parent="." index="1"]
+[node name="StateMachine" parent="." index="2"]
 initial_state = NodePath("Move")
 
 [node name="Move" type="Node" parent="StateMachine" index="0"]
@@ -34,6 +34,5 @@ _max_speed = 75.0
 
 [node name="Follow" type="Node" parent="StateMachine/Move" index="2"]
 script = ExtResource( 6 )
-[connection signal="body_entered" from="DamageSource" to="." method="_on_DamageSource_body_entered"]
 
 [editable path="DamageSource"]
