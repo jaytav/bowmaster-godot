@@ -2,12 +2,13 @@
 
 [ext_resource path="res://assets/textures/1x1.png" type="Texture" id=1]
 [ext_resource path="res://src/interfaces/Interactable.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/items/HealthInteractable.gd" type="Script" id=3]
+[ext_resource path="res://src/items/health/HealthInteractable.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 18 )
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 48.0
+radius = 40.0
 
 [node name="HealthInteractable" instance=ExtResource( 2 )]
 rotation = 0.00613282

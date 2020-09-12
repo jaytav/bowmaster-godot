@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/stats/interfaces/CapacityStat.gd"
 }, {
-"base": "Reference",
+"base": "Timer",
 "class": "Effect",
 "language": "GDScript",
 "path": "res://src/effect/interfaces/Effect.gd"

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://src/items/health/SmallHealthPotion.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/other/GroundTileMap.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/items/HealthInteractable.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/items/health/MediumHealthPotion.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/enemy/air/SmallAirEnemy.tscn" type="PackedScene" id=5]
 
 [node name="Game" type="Node2D"]
@@ -17,13 +18,13 @@ _show_debug = true
 [node name="StateMachineDebug" parent="Player/EntityUI" index="0"]
 visible = true
 
-[node name="HealthInteractable" parent="." instance=ExtResource( 4 )]
-position = Vector2( 120, -8 )
-_length = 3.0
-_tick = 0.5
-_health = 2
-
 [node name="SmallAirEnemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 224, -104 )
+
+[node name="SmallHealthPotion" parent="." instance=ExtResource( 1 )]
+position = Vector2( 64, -16 )
+
+[node name="MediumHealthPotion" parent="." instance=ExtResource( 4 )]
+position = Vector2( 136, -16 )
 
 [editable path="Player"]
