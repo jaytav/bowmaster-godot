@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/scenes/game/GameGUI.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/1x1.png" type="Texture" id=2]
 
 [node name="GameGUI" type="Control"]
 pause_mode = 2
@@ -16,52 +17,29 @@ __meta__ = {
 [node name="TopLeftBackground" type="Panel" parent="."]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 248.0
-margin_bottom = 120.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PlayerHealth" type="Label" parent="."]
-modulate = Color( 0.917647, 0.47451, 0.47451, 1 )
-margin_left = 144.0
-margin_top = 24.0
-margin_right = 174.0
-margin_bottom = 40.0
-rect_scale = Vector2( 2, 2 )
-text = "X / Y"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PlayerHealthLabel" type="Label" parent="."]
-margin_left = 24.0
-margin_top = 24.0
-margin_right = 54.0
-margin_bottom = 40.0
-rect_scale = Vector2( 2, 2 )
-text = "Health"
+margin_right = 1432.0
+margin_bottom = 48.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PlayerAmmo" type="Label" parent="."]
 modulate = Color( 0.796078, 0.698039, 0.431373, 1 )
-margin_left = 144.0
-margin_top = 80.0
-margin_right = 174.0
-margin_bottom = 96.0
+margin_left = 1352.0
+margin_top = 16.0
+margin_right = 1382.0
+margin_bottom = 32.0
 rect_scale = Vector2( 2, 2 )
-text = "X"
+text = "X / Y"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PlayerAmmoLabel" type="Label" parent="."]
-margin_left = 24.0
-margin_top = 80.0
-margin_right = 67.0
-margin_bottom = 96.0
+margin_left = 1256.0
+margin_top = 16.0
+margin_right = 1299.0
+margin_bottom = 30.0
 rect_scale = Vector2( 2, 2 )
 text = "Ammo"
 __meta__ = {
@@ -78,3 +56,44 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PlayerHealth" type="Control" parent="."]
+anchor_left = 0.032
+anchor_top = 0.067
+anchor_right = 0.032
+anchor_bottom = 0.067
+margin_left = 0.0639997
+margin_top = -0.04
+margin_right = 1232.06
+margin_bottom = 39.96
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Under" type="TextureProgress" parent="PlayerHealth"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 1224.0
+margin_bottom = 32.0
+value = 100.0
+texture_progress = ExtResource( 2 )
+tint_progress = Color( 0.839216, 0.588235, 0.588235, 1 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Over" type="TextureProgress" parent="PlayerHealth"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 1224.0
+margin_bottom = 32.0
+value = 100.0
+texture_progress = ExtResource( 2 )
+tint_progress = Color( 0.866667, 0.341176, 0.341176, 1 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpdateTween" type="Tween" parent="PlayerHealth"]
