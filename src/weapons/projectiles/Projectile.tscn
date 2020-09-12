@@ -8,7 +8,7 @@
 script = ExtResource( 3 )
 _destroy_on_impact = true
 
-[node name="StateMachine" parent="." index="1"]
+[node name="StateMachine" parent="." index="2"]
 initial_state = NodePath("Move")
 
 [node name="Move" type="Node" parent="StateMachine" index="0"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://src/effect/Effect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/effect/interfaces/Effect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/effect/HealthRegeneration.gd" type="Script" id=2]
 
 [node name="HealthRegeneration" instance=ExtResource( 1 )]

@@ -14,6 +14,9 @@ tile_data = PoolIntArray( -458754, 0, 0, -393218, 0, 0, -327682, 0, 0, -262146, 
 position = Vector2( 0, -16 )
 _show_debug = true
 
+[node name="StateMachineDebug" parent="Player/EntityUI" index="0"]
+visible = true
+
 [node name="HealthInteractable" parent="." instance=ExtResource( 4 )]
 position = Vector2( 120, -8 )
 _length = 3.0
@@ -21,4 +24,6 @@ _tick = 0.5
 _health = 2
 
 [node name="SmallAirEnemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 64, -72 )
+position = Vector2( 224, -104 )
+
+[editable path="Player"]
