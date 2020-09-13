@@ -8,11 +8,13 @@
 collision_layer = 4
 script = ExtResource( 2 )
 
-[node name="DamageSource" parent="." index="4"]
+[node name="Weapon" type="Node" parent="." index="3"]
+
+[node name="DamageSource" parent="." index="5"]
 collision_layer = 0
 collision_mask = 2
 
-[node name="DetectionRange" parent="." index="5" instance=ExtResource( 3 )]
+[node name="DetectionRange" parent="." index="6" instance=ExtResource( 3 )]
 collision_layer = 0
 collision_mask = 2
 

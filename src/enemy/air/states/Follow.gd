@@ -1,3 +1,4 @@
+class_name EnemyAirFollow
 extends State
 
 export (float) var _max_speed

@@ -15,7 +15,7 @@ radius = 5.0
 radius = 8.0
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 72.0
+radius = 144.0
 
 [sub_resource type="CircleShape2D" id=5]
 radius = 6.0
@@ -46,7 +46,7 @@ _max_speed = 50.0
 [node name="Follow" parent="StateMachine/Move" index="2"]
 _max_speed = 75.0
 
-[node name="Sprite" parent="." index="3"]
+[node name="Sprite" parent="." index="4"]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
@@ -56,7 +56,7 @@ shape = SubResource( 3 )
 [node name="CollisionShape2D" parent="DetectionRange" index="0"]
 shape = SubResource( 4 )
 
-[node name="CollisionShape2D" parent="." index="6"]
+[node name="CollisionShape2D" parent="." index="7"]
 shape = SubResource( 5 )
 [connection signal="body_entered" from="DetectionRange" to="StateMachine/Move" method="_on_DetectionRange_body_entered"]
 [connection signal="body_exited" from="DetectionRange" to="StateMachine/Move" method="_on_DetectionRange_body_exited"]

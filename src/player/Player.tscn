@@ -53,15 +53,17 @@ script = ExtResource( 7 )
 [node name="Air" type="Node" parent="StateMachine/Move" index="2"]
 script = ExtResource( 8 )
 
-[node name="Sprite" parent="." index="3"]
+[node name="Equips" type="Node" parent="." index="3"]
+
+[node name="Sprite" parent="." index="4"]
 modulate = Color( 0.14902, 0.454902, 0.784314, 1 )
 texture = ExtResource( 2 )
 
-[node name="Camera2D" type="Camera2D" parent="." index="4"]
+[node name="Camera2D" type="Camera2D" parent="." index="5"]
 current = true
 zoom = Vector2( 0.4, 0.4 )
 
-[node name="Interactor" type="Area2D" parent="." index="5"]
+[node name="Interactor" type="Area2D" parent="." index="6"]
 collision_layer = 0
 collision_mask = 8
 script = ExtResource( 5 )
@@ -69,7 +71,7 @@ script = ExtResource( 5 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactor" index="0"]
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D" parent="." index="6"]
+[node name="CollisionShape2D" parent="." index="7"]
 shape = SubResource( 2 )
 [connection signal="depleted" from="Stats/Health" to="." method="_on_Health_depleted"]
 [connection signal="area_entered" from="Interactor" to="Interactor" method="_on_Interactor_area_entered"]

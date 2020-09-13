@@ -1,29 +1,31 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/weapons/projectiles/Projectile.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/weapons/projectiles/arrows/BasicArrow.gd" type="Script" id=2]
-[ext_resource path="res://assets/textures/1x1.png" type="Texture" id=3]
+[ext_resource path="res://assets/textures/1x1.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5, 5 )
+extents = Vector2( 4, 4 )
 
-[node name="BasicArrow" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+[node name="BasicEnemyProjectile" instance=ExtResource( 1 )]
+_show_debug = true
 
 [node name="Damage" parent="Stats" index="0"]
-initial_value = 2
+initial_value = 5
+
+[node name="StateMachine" parent="." index="2"]
+initial_state = NodePath("../../BasicEnemyProjectile/StateMachine/Move")
 
 [node name="Move" parent="StateMachine" index="0"]
-_initial_speed = 500.0
+_initial_speed = 200.0
 
 [node name="Sprite" parent="." index="3"]
-modulate = Color( 0.576471, 0.501961, 0.368627, 1 )
+modulate = Color( 1, 0.45098, 0.00784314, 1 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 [node name="DamageSource" parent="." index="4"]
 collision_layer = 0
-collision_mask = 5
+collision_mask = 3
 
 [node name="CollisionShape2D" parent="DamageSource" index="0"]
 shape = SubResource( 1 )
