@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/stats/interfaces/CapacityStat.gd"
 }, {
-"base": "Timer",
+"base": "Reference",
 "class": "Effect",
 "language": "GDScript",
 "path": "res://src/effect/interfaces/Effect.gd"
@@ -154,6 +154,7 @@ run/main_scene="res://src/main/Main.tscn"
 Scenes="*res://src/autoload/Scenes.gd"
 MainGUI="*res://src/autoload/MainGUIScene.gd"
 MainWorld="*res://src/autoload/MainWorldScene.gd"
+MainLoader="*res://src/autoload/MainLoader.gd"
 EffectLoader="*res://src/autoload/EffectLoader.gd"
 
 [debug]
