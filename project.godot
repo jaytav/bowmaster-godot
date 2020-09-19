@@ -74,6 +74,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/player/Interactor.gd"
 }, {
+"base": "Object",
+"class": "LevelGenerator",
+"language": "GDScript",
+"path": "res://src/level/LevelGenerator.gd"
+}, {
 "base": "Weapon",
 "class": "LivingWeapon",
 "language": "GDScript",
@@ -103,6 +108,11 @@ _global_script_classes=[ {
 "class": "ReplenishStat",
 "language": "GDScript",
 "path": "res://src/stats/interfaces/ReplenishStat.gd"
+}, {
+"base": "Node2D",
+"class": "Room",
+"language": "GDScript",
+"path": "res://src/level/Room.gd"
 }, {
 "base": "AirEnemy",
 "class": "SmallAirEnemy",
@@ -153,12 +163,14 @@ _global_script_class_icons={
 "InstantEffect": "",
 "Interactable": "",
 "Interactor": "",
+"LevelGenerator": "",
 "LivingWeapon": "",
 "Loader": "",
 "MainScene": "",
 "Projectile": "",
 "RangedWeapon": "",
 "ReplenishStat": "",
+"Room": "",
 "SmallAirEnemy": "",
 "SmallGroundEnemy": "",
 "SmallRangedAirEnemy": "",
@@ -180,6 +192,7 @@ MainGUI="*res://src/autoload/MainGUIScene.gd"
 MainWorld="*res://src/autoload/MainWorldScene.gd"
 MainLoader="*res://src/autoload/MainLoader.gd"
 EffectLoader="*res://src/autoload/EffectLoader.gd"
+RoomLoader="*res://src/autoload/RoomLoader.gd"
 
 [debug]
 

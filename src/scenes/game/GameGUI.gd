@@ -3,7 +3,7 @@ extends Control
 onready var _game_menu = $GameMenu
 
 # Stats
-onready var _player_stats: Node = MainWorld.get("Game/Player/Stats")
+onready var _player_stats: Node = MainWorld.get("GameWorld/Player/Stats")
 
 # Health
 onready var _player_health_over_ui: TextureProgress = $PlayerHealth/Over

@@ -28,8 +28,9 @@ initial_state = NodePath("../../SmallRangedAirEnemy/StateMachine/Move")
 
 [node name="Weapon" parent="." index="3"]
 script = ExtResource( 4 )
-[connection signal="body_entered" from="DetectionRange" to="StateMachine/Move" method="_on_DetectionRange_body_entered"]
-[connection signal="body_exited" from="DetectionRange" to="StateMachine/Move" method="_on_DetectionRange_body_exited"]
+
+[node name="Sprite" parent="." index="4"]
+visible = true
 
 [editable path="DamageSource"]
 

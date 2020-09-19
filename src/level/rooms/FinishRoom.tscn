@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/level/Room.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/level/rooms/FinishRoom.gd" type="Script" id=2]
+[ext_resource path="res://src/other/Finish.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/textures/1x1.png" type="Texture" id=4]
+
+[node name="FinishRoom" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Finish" parent="." index="0" instance=ExtResource( 3 )]
+position = Vector2( 88, -40 )
+
+[node name="Sprite" type="Sprite" parent="Finish" index="1"]
+modulate = Color( 0.94902, 0.760784, 0.0196078, 1 )
+texture = ExtResource( 4 )
+
+[node name="GroundTileMap" parent="." index="1"]
+tile_data = PoolIntArray( -655360, 0, 0, -655359, 0, 0, -655358, 0, 0, -655357, 0, 0, -655356, 0, 0, -655355, 0, 0, -655354, 0, 0, -655353, 0, 0, -655352, 0, 0, -655351, 0, 0, -655350, 0, 0, -589824, 0, 0, -589814, 0, 0, -524288, 0, 0, -524278, 0, 0, -458752, 0, 0, -458742, 0, 0, -393216, 0, 0, -393206, 0, 0, -327680, 0, 0, -327670, 0, 0, -262134, 0, 0, -196598, 0, 0, -131062, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0 )

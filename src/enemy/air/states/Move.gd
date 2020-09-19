@@ -25,14 +25,14 @@ func physics_process(delta: float) -> void:
 
 
 func _set_velocity(state: State) -> void:
-	var target_position = _current_target_area.position if _current_target_area else owner.position
+	var target_position = _current_target_area.get_global_position() if _current_target_area else owner.get_global_position()
 	
 	if state.name == "Follow":
-		target_position = state.target.position
+		target_position = state.target.get_global_position()
 	elif state.name == "Move":
-		target_position = owner.position
+		target_position = owner.get_global_position()
 	
-	var move_direction = owner.position.direction_to(target_position)
+	var move_direction = owner.get_global_position().direction_to(target_position)
 	
 	if move_direction.x > 0:
 		_velocity.x = min(_velocity.x + _acceleration, max_speed)
@@ -50,7 +50,7 @@ func _set_current_patrol_area() -> void:
 		_current_patrol_area.queue_free()
 	
 	_current_patrol_area = _area.instance()
-	_current_patrol_area.position = owner.position
+	_current_patrol_area.position = owner.get_global_position()
 	_current_patrol_area.get_node("CollisionShape2D").set_shape(_patrol_area_shape)
 	MainWorld.add(_current_patrol_area)
 
@@ -65,8 +65,8 @@ func set_target_position() -> void:
 	var theta = n * 2 * PI
 	
 	_current_target_area = _area.instance()
-	_current_target_area.position.x = _current_patrol_area.position.x + r * cos(theta)
-	_current_target_area.position.y = _current_patrol_area.position.y + r * sin(theta)
+	_current_target_area.position.x = _current_patrol_area.get_global_position().x + r * cos(theta)
+	_current_target_area.position.y = _current_patrol_area.get_global_position().y + r * sin(theta)
 	_current_target_area.get_node("CollisionShape2D").set_shape(_target_position_shape)
 	_current_target_area.connect("body_entered", self, "_on_current_target_area_entered")
 	MainWorld.add(_current_target_area)
