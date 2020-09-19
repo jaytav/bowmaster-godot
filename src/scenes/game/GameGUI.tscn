@@ -15,20 +15,27 @@ __meta__ = {
 }
 
 [node name="TopLeftBackground" type="Panel" parent="."]
+anchor_top = 0.011
+anchor_right = 1.871
+anchor_bottom = 0.064
 margin_left = 8.0
-margin_top = 8.0
-margin_right = 1432.0
-margin_bottom = 48.0
+margin_top = -0.250001
+margin_right = -7.52808
+margin_bottom = -3.8147e-06
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="PlayerAmmo" type="Label" parent="."]
 modulate = Color( 0.796078, 0.698039, 0.431373, 1 )
-margin_left = 1352.0
-margin_top = 16.0
-margin_right = 1382.0
-margin_bottom = 32.0
+anchor_left = 1.857
+anchor_top = 0.021
+anchor_right = 1.857
+anchor_bottom = 0.021
+margin_left = -60.3762
+margin_top = 0.249999
+margin_right = -30.3762
+margin_bottom = 14.25
 rect_scale = Vector2( 2, 2 )
 text = "X / Y"
 __meta__ = {
@@ -36,10 +43,14 @@ __meta__ = {
 }
 
 [node name="PlayerAmmoLabel" type="Label" parent="."]
-margin_left = 1256.0
-margin_top = 16.0
-margin_right = 1299.0
-margin_bottom = 30.0
+anchor_left = 1.8
+anchor_top = 0.021
+anchor_right = 1.8
+anchor_bottom = 0.021
+margin_left = -86.4001
+margin_top = 0.249999
+margin_right = -43.4001
+margin_bottom = 14.25
 rect_scale = Vector2( 2, 2 )
 text = "Ammo"
 __meta__ = {
@@ -71,10 +82,14 @@ __meta__ = {
 }
 
 [node name="Under" type="TextureProgress" parent="PlayerHealth"]
-margin_left = 16.0
-margin_top = 8.0
-margin_right = 1224.0
-margin_bottom = 32.0
+anchor_left = -0.029
+anchor_top = -1.055
+anchor_right = 1.88
+anchor_bottom = -0.055
+margin_left = 7.72789
+margin_top = 8.2
+margin_right = -8.15283
+margin_bottom = -7.8
 value = 100.0
 texture_progress = ExtResource( 2 )
 tint_progress = Color( 0.839216, 0.588235, 0.588235, 1 )
@@ -84,10 +99,14 @@ __meta__ = {
 }
 
 [node name="Over" type="TextureProgress" parent="PlayerHealth"]
-margin_left = 16.0
-margin_top = 8.0
-margin_right = 1224.0
-margin_bottom = 32.0
+anchor_left = -0.029
+anchor_top = -1.055
+anchor_right = 1.88
+anchor_bottom = -0.055
+margin_left = 7.72789
+margin_top = 8.2
+margin_right = -8.15283
+margin_bottom = -7.8
 value = 100.0
 texture_progress = ExtResource( 2 )
 tint_progress = Color( 0.866667, 0.341176, 0.341176, 1 )
